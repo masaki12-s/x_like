@@ -3,8 +3,22 @@
     ユーザ作成画面はこちら
     <a href="{{ route('user.create') }}">ユーザ作成</a>
     <h2>作成されたユーザ一覧</h2>
-    <ul>
-        @foreach ($users as $user)
-            <li>{{ $user->name }}</li>
-        @endforeach
+    <table>
+        <tr>
+            <th>ユーザ名</th>
+            <th>削除</th>
+        </tr>
+        <tr>
+            @foreach ($users as $user)
+            <th>{{ $user->name }}</li>
+            <th>
+                <form action="{{ route('user.delete', ['id'=>$user->id]) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">削除</button>
+                </form>
+            </th>
+            @endforeach
+
+        </tr>
+    </table>
 </div>

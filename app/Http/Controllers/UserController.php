@@ -29,4 +29,10 @@ class UserController extends Controller
         User::create($data);
         return redirect('/user');
     }
+
+    public function delete($id)
+    {
+        User::find($id)->delete();
+        return redirect('/user');
+    }
 }
