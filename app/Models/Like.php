@@ -5,22 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tweet extends Model
+class Like extends Model
 {
     use HasFactory;
 
-    /**
-     * `
-     * @var
-     */
     protected $fillable = [
         'user_id',
-        'date',
-        'time',
-        'tweet',
+        'tweet_id',
     ];
-
-    public function user() {
-        return $this->belongsTo(User::class);
-    }
 }
