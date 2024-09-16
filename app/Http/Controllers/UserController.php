@@ -12,4 +12,21 @@ class UserController extends Controller
             'users' => User::all()
         ]);
     }
+
+    public function create()
+    {
+        return view('user.create');
+    }
+
+    public function store()
+    {
+        $data = request()->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        User::create($data);
+        return redirect('/user');
+    }
 }
